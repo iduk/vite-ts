@@ -1,8 +1,8 @@
-import IndexPage from './pages'
-import GlobalLayout from './pages/_layout'
-import Home from './pages/home'
-import ProductIndex from './pages/products'
-import ProductDetail from './pages/products/[id]'
+import IndexPage from '@pages/index'
+import GlobalLayout from '@pages/_layout'
+import Home from '@pages/home'
+import ProductIndex from '@pages/products'
+import ProductDetail from '@pages/products/[id]'
 
 export const routes = [
     {
