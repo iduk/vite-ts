@@ -1,0 +1,55 @@
+:root {
+  // Color
+  --primary: #6f80f5;
+  --secondary: #ff4fbe;
+
+  --current: currentColor;
+  --transparent: transparent;
+  --white: #ffffff;
+
+  --blue-1: #f9f9fa;
+  --blue-2: #fafaff;
+  --blue-3: #f1f3fc;
+  --blue-4: #dbddea;
+  --blue-5: #a2a5cb;
+  --blue-6: #b9c1f7;
+  --blue-7: #6f80f5;
+  --blue-8: #5f73fc;
+  --blue-9: #3d4ec6;
+  --blue-10: #3d4ec6;
+
+  --gray-1: #f9f9f9;
+  --gray-2: #f1f1f1;
+  --gray-3: #e1e3e5;
+  --gray-4: #dfdfdf;
+  --gray-5: #d4d4d4;
+  --gray-6: #bbc0c6;
+  --gray-7: #babbc2;
+  --gray-8: #a2a6aa;
+  --gray-9: #858585;
+  --gray-10: #747474;
+  --gray-11: #6c6c6c;
+  --gray-12: #66696f;
+  --gray-13: #45464f;
+  --gray-14: #3c3d42;
+  --gray-15: #252628;
+
+  // fontFamily
+  font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
+  button {
+    font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
+  }
+
+  // fontSize
+  --h1: 28px;
+  --h2: 24px;
+  --h3: 22px;
+  --h4: 20px;
+  --h5: 20px;
+  --h6: 18px;
+  --text-size-base: 16px;
+  --text-size-lg: 18px;
+  --text-size-sm: 14px;
+  --text-size-xs: 13px;
+  --text-size-xxs: 11px;
+}

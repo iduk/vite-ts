@@ -1,9 +1,16 @@
+import React from 'react'
 import { useRoutes } from 'react-router-dom'
 import { routes } from './routes'
+import './App.css'
 
-const App = () => {
-    const elem = useRoutes(routes)
-    return elem
+const App: React.FC = () => {
+  const element = useRoutes(routes)
+
+  return (
+    <div className="app">
+      <main className="main">{element}</main>
+    </div>
+  )
 }
 
 export default App

@@ -1,0 +1,19 @@
+.test {
+  @include flexbox;
+  @include justify-content(flex-end);
+  @include align-items(center);
+  @include flex-gap(8px);
+
+  div {
+    width: 40px;
+    height: 40px;
+
+    &.bg-primary {
+      background-color: var(--primary);
+    }
+  }
+}
+
+h1 {
+  font-size: 60px;
+}
