@@ -1,19 +1,18 @@
-/* eslint-disable react-refresh/only-export-components */
-import { lazy } from 'react'
+import IndexPage from './pages'
 import GlobalLayout from './pages/_layout'
-
-const Index = lazy(() => import('./pages/index'))
-const ProductsIndex = lazy(() => import('./pages/products/index'))
-const ProductsId = lazy(() => import('./pages/products/[id]'))
+import Home from './pages/home'
+import ProductIndex from './pages/products'
+import ProductDetail from './pages/products/[id]'
 
 export const routes = [
     {
         path: '/',
         element: <GlobalLayout />,
         children: [
-            { path: '/', element: <Index /> },
-            { path: '/products', element: <ProductsIndex /> },
-            { path: '/products/:id', element: <ProductsId /> },
+            { path: '/', element: <IndexPage /> },
+            { path: '/home', element: <Home /> },
+            { path: '/products', element: <ProductIndex /> },
+            { path: '/products/:id', element: <ProductDetail /> },
         ],
     },
 ]

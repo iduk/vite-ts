@@ -7,9 +7,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const queryClient = new QueryClient()
-const rootElement = document.getElementById('root') as HTMLElement
+const rootElement = document.getElementById('root')!
+const app = createRoot(rootElement)
 
-createRoot(rootElement).render(
+app.render(
     <StrictMode>
         <BrowserRouter>
             <QueryClientProvider client={queryClient}>
