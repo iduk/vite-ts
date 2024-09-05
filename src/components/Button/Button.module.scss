@@ -50,15 +50,22 @@
     background: var(--primary);
     color: var(--white);
   }
-  &-gray {
-    border: 1px solid var(--gray-);
-    background: var(--gray);
+  &-secondary {
+    border: 1px solid var(--secondary);
+    background: var(--secondary);
+    color: var(--white);
   }
 }
 
 .btn {
   &-outline {
-    background-color: transparent;
+    background-color: var(--white);
+  }
+  &-primary.btn-outline {
+    color: var(--primary);
+  }
+  &-secondary.btn-outline {
+    color: var(--secondary);
   }
 }
 
@@ -66,4 +73,8 @@
   &-square {
     border-radius: 0;
   }
+}
+
+.btn-block {
+  width: 100%;
 }

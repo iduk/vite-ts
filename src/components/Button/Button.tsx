@@ -1,33 +1,32 @@
 import React from 'react'
 import styles from './Button.module.scss'
+import classNames from 'classnames/bind'
+const cx = classNames.bind(styles)
 
 interface ButtonProps {
-  color?: 'primary' | 'gray'
   size?: 'xs' | 'sm' | 'md' | 'lg'
-  shape?: 'outline' | 'fill'
+  color?: 'primary' | 'secondary'
   square?: boolean
+  outline?: boolean
   block?: boolean
-  children?: React.ReactNode
-  className?: string
+  children: React.ReactNode
 }
 
 export default function Button({
-  color = 'primary',
   size = 'md',
-  shape = 'fill',
+  color = 'primary',
   square = false,
+  outline = false,
   block = false,
   children,
-  className = '',
 }: ButtonProps) {
-  const buttonClass = `
-    ${styles.btn}
-    ${styles[`btn-${color}`]} 
-    ${styles[`btn-${size}`]} 
-    ${styles[`btn-${shape}`]} 
-    ${square ? styles['btn-square'] : ''}
-    ${block ? styles['btn-block'] : ''}
-    ${className}
-  `
-  return <button className={buttonClass}>{children}</button>
+  const classes = cx('btn', {
+    [`btn-${size}`]: size,
+    [`btn-${color}`]: color,
+    'btn-square': square,
+    'btn-outline': outline,
+    'btn-block': block,
+  })
+
+  return <button className={classes}>{children}</button>
 }

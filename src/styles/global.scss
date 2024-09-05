@@ -13,3 +13,20 @@
   border: 0;
   clip: rect(0 0 0 0);
 }
+
+.flex {
+  @include flexbox;
+  @include justify-content(flex-start);
+}
+
+.flex-col {
+  @include flex-direction(column);
+}
+
+.justify-center {
+  @include justify-content(center);
+}
+
+.items-center {
+  @include align-items(center);
+}

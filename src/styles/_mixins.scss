@@ -174,3 +174,9 @@
   -ms-gap: $gap;
   gap: $gap;
 }
+
+@for $i from 0 through 20 {
+  .flex-gap-#{$i} {
+    @include flex-gap(#{$i}px);
+  }
+}

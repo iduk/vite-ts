@@ -1,19 +1,15 @@
-.test {
-  @include flexbox;
-  @include justify-content(flex-end);
-  @include align-items(center);
-  @include flex-gap(8px);
-
-  div {
-    width: 40px;
-    height: 40px;
-
-    &.bg-primary {
-      background-color: var(--primary);
-    }
-  }
+.wrapper {
+  padding: 20px;
 }
 
-h1 {
-  font-size: 60px;
+.box {
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
 }
