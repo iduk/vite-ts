@@ -1,0 +1,41 @@
+.item-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.figure {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--gray);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+}
+
+.label {
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(center);
+  @include flex-gap(4px);
+  height: 48px;
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+}
+
+.active {
+  .label {
+    background-color: var(--primary);
+    color: var(--white);
+  }
+}
