@@ -9,6 +9,7 @@ interface ButtonProps {
   square?: boolean
   outline?: boolean
   block?: boolean
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
   children: React.ReactNode
 }
 
@@ -18,6 +19,7 @@ export default function Button({
   square = false,
   outline = false,
   block = false,
+  onClick,
   children,
 }: ButtonProps) {
   const classes = cx('btn', {
@@ -28,5 +30,9 @@ export default function Button({
     'btn-block': block,
   })
 
-  return <button className={classes}>{children}</button>
+  return (
+    <button className={classes} onClick={onClick}>
+      {children}
+    </button>
+  )
 }

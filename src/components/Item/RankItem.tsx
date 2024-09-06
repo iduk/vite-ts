@@ -1,23 +1,25 @@
 import classNames from 'classnames/bind'
-import styles from './item.module.scss'
+import styles from './Item.module.scss'
+const cx = classNames.bind(styles)
 import sampleIcon from '@/assets/react.svg'
 
-const cx = classNames.bind(styles)
-
-interface RankItemProps {
-  items: {
-    colorWidth: string
-    state: string
-    ImgSrc: string
-    ImgAlt: string
-    name: string
-    info: string
-    like: string
-    count: string
-  }[]
+interface RankItemData {
+  colorWidth: string
+  state: string
+  ImgSrc: string
+  ImgAlt: string
+  name: string
+  info: string
+  like: string
+  count: string
 }
 
-export default function RankItem({ items }: RankItemProps) {
+interface RankItemProps {
+  items: RankItemData[]
+  type?: 'col' | 'row' | 'mix'
+}
+
+export default function RankItem({ items, type = 'col' }: RankItemProps) {
   const getStateText = (state: string) => {
     switch (state) {
       case 'up':
@@ -47,7 +49,7 @@ export default function RankItem({ items }: RankItemProps) {
   }
 
   return (
-    <ul className={cx('rank-container')}>
+    <ul className={cx('rank-container', type)}>
       {items.map((item, index) => (
         <li className={cx('rank-item')} key={index}>
           <span className={cx('color')} style={{ width: item.colorWidth }}></span>

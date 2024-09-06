@@ -8,7 +8,11 @@ import Dialog from '@/components/Dialog/Dialog'
 import CheckItem from '@/components/Item/CheckItem'
 import VoteItem from '@/components/Item/VoteItem'
 import RankItem from '@/components/Item/RankItem'
+import GraphItem from '@/components/Item/GraphItem'
 import Filter from '@/components/Filter/Filter'
+import Carousel from '@/components/Carousel/Carousel'
+import TextField from '@/components/Form/TextField'
+import Dropdown from '@/components/Form/Dropdown'
 import sampleIcon from '@/assets/react.svg'
 
 // 체크아이템
@@ -117,6 +121,121 @@ const RankItemSet1 = [
     count: '4K',
   },
 ]
+const RankItemSet2 = [
+  {
+    colorWidth: '90%',
+    state: 'up',
+    ImgSrc: sampleIcon,
+    ImgAlt: 'Thumbnail 1',
+    name: '아이템1',
+    info: '아이템설명1',
+    like: '10대가 좋아해요!',
+    count: '1K',
+  },
+  {
+    colorWidth: '50%',
+    state: 'keep',
+    ImgSrc: sampleIcon,
+    ImgAlt: 'Thumbnail 2',
+    name: '아이템2',
+    info: '아이템설명2',
+    like: '20대가 좋아해요!',
+    count: '2K',
+  },
+  {
+    colorWidth: '30%',
+    state: 'up',
+    ImgSrc: sampleIcon,
+    ImgAlt: 'Thumbnail 3',
+    name: '아이템3',
+    info: '아이템설명3',
+    like: '30대가 좋아해요!',
+    count: '3K',
+  },
+  {
+    colorWidth: '10%',
+    state: 'down',
+    ImgSrc: sampleIcon,
+    ImgAlt: 'Thumbnail 4',
+    name: '아이템4',
+    info: '아이템설명4',
+    like: '40대가 좋아해요!',
+    count: '4K',
+  },
+]
+const RankItemSet3 = [
+  {
+    colorWidth: '90%',
+    state: 'up',
+    ImgSrc: sampleIcon,
+    ImgAlt: 'Thumbnail 1',
+    name: '아이템1',
+    info: '아이템설명1',
+    like: '10대가 좋아해요!',
+    count: '1K',
+  },
+  {
+    colorWidth: '50%',
+    state: 'keep',
+    ImgSrc: sampleIcon,
+    ImgAlt: 'Thumbnail 2',
+    name: '아이템2',
+    info: '아이템설명2',
+    like: '20대가 좋아해요!',
+    count: '2K',
+  },
+  {
+    colorWidth: '30%',
+    state: 'up',
+    ImgSrc: sampleIcon,
+    ImgAlt: 'Thumbnail 3',
+    name: '아이템3',
+    info: '아이템설명3',
+    like: '30대가 좋아해요!',
+    count: '3K',
+  },
+  {
+    colorWidth: '10%',
+    state: 'down',
+    ImgSrc: sampleIcon,
+    ImgAlt: 'Thumbnail 4',
+    name: '아이템4',
+    info: '아이템설명4',
+    like: '40대가 좋아해요!',
+    count: '4K',
+  },
+  {
+    colorWidth: '0%',
+    state: 'keep',
+    ImgSrc: sampleIcon,
+    ImgAlt: 'Thumbnail 5',
+    name: '아이템5',
+    info: '아이템설명5',
+    like: '50대가 좋아해요!',
+    count: '5K',
+  },
+]
+
+// 캐러셀
+const CarouselItemSet1 = [
+  <div>Slide 1 Content</div>,
+  <RankItem items={RankItemSet1} />,
+  <VoteItem items={VoteItemSet2} type="col" />,
+]
+
+// 그래프아이템
+const GraphItemSet1 = [
+  { count: '1.4M', height: '100%', name: '아이템 A' },
+  { count: '1M', height: '80%', name: '아이템 B' },
+  { count: '4K', height: '50%', name: '아이템 C' },
+  { count: '3.1K', height: '40%', name: '아이템 D' },
+  { count: '2K', height: '30%', name: '아이템 E' },
+  { count: '543', height: '15%', name: '아이템 F' },
+]
+
+// 드롭다운아이템
+const DropdownSet1 = ['한국', '일본', '미국']
+// const DropdownSet1 = [<div>한국</div>, <div>일본</div>, <div>미국</div>]
 
 export default function Sample() {
   // 푸터
@@ -125,8 +244,10 @@ export default function Sample() {
   }>()
   useEffect(() => {
     setFooter?.(
-      <div>
-        <p>Sample 페이지의 커스텀 Footer 내용입니다.</p>
+      <div style={{ padding: '10px 20px' }}>
+        <Button size="lg" color="primary" block>
+          Sample 페이지의 커스텀 Footer 내용입니다.
+        </Button>
       </div>
     )
     return () => {
@@ -152,6 +273,23 @@ export default function Sample() {
   const [voteType, setVoteType] = useState<'row' | 'col'>('row')
   const toggleVoteType = () => {
     setVoteType(prevType => (prevType === 'row' ? 'col' : 'row'))
+  }
+
+  // 텍스트필드 관련
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const TextFieldSubmit = () => {
+    setIsSubmitted(true)
+  }
+
+  // 드롭다운 관련
+  const [selectedValue, setSelectedValue] = useState<string>('')
+  const [hasError, setHasError] = useState<boolean>(false)
+  const DropdownSubmit = () => {
+    if (!selectedValue) {
+      setHasError(true)
+    } else {
+      setHasError(false)
+    }
   }
 
   return (
@@ -292,6 +430,7 @@ export default function Sample() {
         {/* CheckItem */}
         <section className={cx('flex', 'flex-col', 'flex-gap-8', 'box')}>
           <h1 className={cx('title')}>CheckItem</h1>
+          <h2 className={cx('sub-title')}>type="two" 케이스</h2>
           <CheckItem
             items={CheckItemSet1.map(item => ({
               ...item,
@@ -300,6 +439,7 @@ export default function Sample() {
             }))}
             type="two"
           />
+          <h2 className={cx('sub-title')}>type="three" 케이스</h2>
           <CheckItem
             items={CheckItemSet2.map(item => ({
               ...item,
@@ -312,12 +452,15 @@ export default function Sample() {
         {/* Filter */}
         <section className={cx('flex', 'flex-col', 'flex-gap-8', 'box')}>
           <h1 className={cx('title')}>Filter</h1>
+          <h2 className={cx('sub-title')}>count 없는 케이스</h2>
           <Filter filters={FilterSet1} defaultActiveId="b1" />
+          <h2 className={cx('sub-title')}>count 있는 케이스</h2>
           <Filter filters={FilterSet2} defaultActiveId="a2" />
         </section>
         {/* VoteItem */}
         <section className={cx('flex', 'flex-col', 'flex-gap-8', 'box')}>
           <h1 className={cx('title')}>VoteItem</h1>
+          <h2 className={cx('sub-title')}>type="row" 케이스</h2>
           <button onClick={toggleVoteType}>
             {voteType === 'row' ? (
               <>
@@ -332,12 +475,57 @@ export default function Sample() {
             )}
           </button>
           <VoteItem items={VoteItemSet1} type={voteType} />
+          <h2 className={cx('sub-title')}>type="col" 케이스</h2>
           <VoteItem items={VoteItemSet2} type="col" />
         </section>
         {/* RankItem */}
         <section className={cx('flex', 'flex-col', 'flex-gap-8', 'box')}>
           <h1 className={cx('title')}>RankItem</h1>
+          <h2 className={cx('sub-title')}>type="col" 케이스</h2>
           <RankItem items={RankItemSet1} />
+          <h2 className={cx('sub-title')}>type="row" 케이스</h2>
+          <RankItem items={RankItemSet2} type="row" />
+          <h2 className={cx('sub-title')}>type="mix" 케이스</h2>
+          <RankItem items={RankItemSet3} type="mix" />
+        </section>
+        {/* Carousel */}
+        <section className={cx('flex', 'flex-col', 'flex-gap-8', 'box')}>
+          <h1 className={cx('title')}>Carousel</h1>
+          <Carousel items={CarouselItemSet1} />
+        </section>
+        {/* GraphItem */}
+        <section className={cx('flex', 'flex-col', 'flex-gap-8', 'box')}>
+          <h1 className={cx('title')}>GraphItem</h1>
+          <GraphItem items={GraphItemSet1} />
+        </section>
+        {/* TextField */}
+        <section className={cx('flex', 'flex-col', 'flex-gap-8', 'box')}>
+          <h1 className={cx('title')}>TextField</h1>
+          <TextField
+            label="라벨명"
+            placeholder="매장코드 입력"
+            errorMessage="매장코드를 입력해주세요!"
+            isSubmitted={isSubmitted}
+          />
+          <Button size="lg" color="primary" onClick={TextFieldSubmit}>
+            TextField Submit
+          </Button>
+        </section>
+        {/* Dropdown */}
+        <section className={cx('flex', 'flex-col', 'flex-gap-8', 'box')}>
+          <h1 className={cx('title')}>Dropdown</h1>
+          <Dropdown
+            label="라벨명"
+            placeholder="국가를 선택해주세요"
+            errorMessage="국가를 선택해주세요!"
+            items={DropdownSet1}
+            hasError={hasError}
+            setHasError={setHasError}
+            onChange={setSelectedValue}
+          />
+          <Button size="lg" color="primary" onClick={DropdownSubmit}>
+            Dropdown Submit
+          </Button>
         </section>
       </div>
     </>

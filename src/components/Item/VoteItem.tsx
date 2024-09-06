@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind'
-import styles from './item.module.scss'
+import styles from './Item.module.scss'
 const cx = classNames.bind(styles)
 import sampleIcon from '@/assets/react.svg'
 
