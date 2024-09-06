@@ -1,10 +1,10 @@
 .header {
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(center);
+  @include flex-shrink(0);
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   height: 100px;
-  flex-shrink: 0;
   background-color: var(--white);
   padding: 0 28px;
 
@@ -23,7 +23,7 @@
   }
 
   .lang-btn {
-    display: flex;
+    @include flexbox;
 
     button {
       width: 60px;

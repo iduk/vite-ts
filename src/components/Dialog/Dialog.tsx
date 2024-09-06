@@ -45,7 +45,7 @@ export default function Dialog({
         {trigger}
       </div>
       {isOpen && (
-        <div className={cx('dialog-overlay', { open: isAnimating })} onClick={closeDialog}>
+        <div className={cx('dialog-dim', { open: isAnimating })} onClick={closeDialog}>
           <div
             className={cx('dialog', type, { open: isAnimating })}
             onClick={e => e.stopPropagation()}

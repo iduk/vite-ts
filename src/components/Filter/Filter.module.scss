@@ -1,0 +1,25 @@
+.filter-container {
+  @include flexbox;
+  @include align-items(center);
+  @include flex-gap(4px);
+  padding: 10px 0;
+  overflow-x: auto;
+}
+
+.filter {
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(center);
+  @include flex-gap(4px);
+  @include flex-shrink(0);
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--primary);
+  border-radius: 100px;
+  background-color: var(--white);
+}
+
+.active {
+  background-color: var(--primary);
+  color: var(--white);
+}

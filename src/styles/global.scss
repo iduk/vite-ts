@@ -18,15 +18,20 @@
   @include flexbox;
   @include justify-content(flex-start);
 }
-
 .flex-col {
   @include flex-direction(column);
 }
-
 .justify-center {
   @include justify-content(center);
 }
-
 .items-center {
   @include align-items(center);
+}
+
+.hidden-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

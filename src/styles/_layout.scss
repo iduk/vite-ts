@@ -10,21 +10,21 @@ body {
 }
 
 .app {
-  display: flex;
-  flex-direction: column;
+  @include flexbox;
+  @include flex-direction(column);
   height: 100%;
 }
 
 .main {
-  display: flex;
-  flex-direction: column;
+  @include flexbox;
+  @include flex-direction(column);
   height: 100%;
   overflow-y: auto;
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
+  @include flexbox;
+  @include flex-direction(column);
   height: 100%;
   overflow-y: auto;
   background-color: var(--gray);

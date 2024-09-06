@@ -15,15 +15,3 @@
   border-bottom: 1px solid var(--gray);
   padding-bottom: 8px;
 }
-
-.item-wrap {
-  gap: 8px;
-  &.two {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  &.three {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
