@@ -8,7 +8,7 @@ export default function Home() {
         <>
             <h1 className={cx("test")}>Home입니당!</h1>
 
-            <div>
+            <div className={cx('home-layout')}>
                 <img src={SvgImg} style={{ width: 100 }} alt="sample image" />
             </div>
         </>
