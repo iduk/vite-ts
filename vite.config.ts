@@ -5,6 +5,15 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react(), tsconfigPaths()],
+    server: {
+        proxy: {
+            '/api': {
+                target: 'http://127.0.0.1:11434',
+                changeOrigin: true,
+                rewrite: path => path.replace(/^\/api/, ''),
+            },
+        },
+    },
 
     css: {
         modules: {
@@ -15,7 +24,7 @@ export default defineConfig({
             // SCSS 전역 사용
             scss: {
                 additionalData: `
-              @import "./src/assets/styles/variables";
+              @use "./src/assets/styles/variables" as var;
               `,
             },
         },
