@@ -1,5 +1,5 @@
-import { getUsers } from '@/api/common'
 import { useEffect, useState } from 'react'
+import { getUsers } from 'api/common'
 
 const TestIndex = () => {
     const [users, setUsers] = useState<{ id: number; name: string }[]>([])
