@@ -1,10 +1,10 @@
 import { viteMockServe } from 'vite-plugin-mock'
-import { defineConfig } from 'vite'
+import { ConfigEnv, UserConfigExport } from 'vite'
 import react from '@vitejs/plugin-react'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command }) => {
+export default ({ command }: ConfigEnv): UserConfigExport => {
     const isDev = command === 'serve'
     console.log(isDev)
     return {
@@ -32,6 +32,14 @@ export default defineConfig(({ command }) => {
             },
         },
 
+        build: {
+            rollupOptions: {
+                output: {
+                    format: 'es', // ES 모듈 형식으로 출력
+                },
+            },
+        },
+
         css: {
             modules: {
                 // Obfuscation
@@ -41,11 +49,11 @@ export default defineConfig(({ command }) => {
                 // SCSS 전역 사용
                 scss: {
                     additionalData: `
-                  @import "./src/assets/styles/variables";
+                  @import "/src/assets/styles/_variables.scss";
                   `,
                 },
             },
             postcss: './postcss.config.js',
         },
     }
-})
+}
