@@ -8,6 +8,7 @@ export default defineConfig(({ command }) => {
     const isDev = command === 'serve'
     console.log(isDev)
     return {
+        base: '/',
         plugins: [
             react(),
             tsconfigPaths(),
