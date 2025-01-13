@@ -19,14 +19,6 @@ export default defineConfig({
         },
     },
 
-    build: {
-        rollupOptions: {
-            output: {
-                format: 'es', // ES 모듈 형식으로 출력
-            },
-        },
-    },
-
     css: {
         modules: {
             // Obfuscation
