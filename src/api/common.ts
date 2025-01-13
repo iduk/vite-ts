@@ -1,5 +1,3 @@
-import apiHandler from './apiHandler'
-
 // API 응답 타입
 export interface ApiResponse<T> {
     code: number
@@ -8,8 +6,11 @@ export interface ApiResponse<T> {
 }
 
 // 유저 목록 가져오기
-export const getUsers = async () => {
-    return apiHandler<ApiResponse<{ id: number; name: string }[]>>('get', '/api/users')
+import axios from 'axios'
+
+export const getUsers = async (): Promise<{ data: { id: number; name: string }[] }> => {
+    const response = await axios.get('/api/users')
+    return response.data
 }
 
 // // 특정 유저 정보 가져오기
