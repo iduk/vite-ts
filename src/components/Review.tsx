@@ -7,58 +7,55 @@ export default function Review() {
     const [review, setReview] = useState<string>('')
     const [isLoading, setIsLoading] = useState(false)
 
-    // Handle file uploads and convert to Base64
     const { getRootProps, getInputProps } = useDropzone({
         onDropAccepted: async files => {
-            const getBase64 = async (file: Blob): Promise<string> => {
-                const reader = new FileReader()
-                reader.readAsDataURL(file)
+            try {
+                const getBase64 = (file: Blob): Promise<string> =>
+                    new Promise((resolve, reject) => {
+                        const reader = new FileReader()
+                        reader.onload = () => resolve(reader.result as string)
+                        reader.onerror = error => reject(error)
+                        reader.readAsDataURL(file)
+                    })
 
-                return new Promise((resolve, reject) => {
-                    reader.onload = () => resolve(reader.result as string)
-                    reader.onerror = error => reject(error)
-                })
+                const eFiles = await Promise.all(files.map(file => getBase64(file)))
+                setEncodedFiles(eFiles)
+                handleReview(eFiles) // Base64 파일 목록 전달
+            } catch (error) {
+                console.error('Error processing files:', error)
             }
-
-            const eFiles: string[] = []
-            for (const file of files) {
-                eFiles.push(await getBase64(file))
-            }
-            setEncodedFiles(eFiles)
-            handleReview(eFiles)
         },
     })
 
+    // 리뷰 생성 요청
     const handleReview = async (files: string[]) => {
         setIsLoading(true)
         setReview('')
 
+        // base64 이미지 변환
+        const images = files.map(file => file.split(',')[1])
+
         try {
-            const response = await fetch(
-                `${import.meta.env.VITE_OLLAMA_HOST}/api/models/llama3.2`,
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ encodedFiles: files }),
-                }
-            )
+            const response = await fetch(`${import.meta.env.VITE_OLLAMA_HOST}/api/generate`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    model: 'llama3.2', // 사용 모델
+                    prompt: 'A review of the image, focusing on the colors and objects in it.',
+                    images, // Base64 파일 목록
+                }),
+            })
 
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`)
+                const errorText = await response.text()
+                throw new Error(`HTTP error! status: ${response.status} - ${errorText}`)
             }
 
-            const reader = response.body?.getReader()
-            const decoder = new TextDecoder('utf-8')
-            let content = ''
-
-            while (reader) {
-                const { value, done } = await reader.read()
-                if (done) break
-                content += decoder.decode(value, { stream: true })
-                setReview(content) // Update review as it streams
-            }
+            const data = await response.json() // JSON 데이터 처리
+            const parsedResponse = JSON.parse(data.response || '{}') // 응답 데이터 파싱
+            setReview(JSON.stringify(parsedResponse, null, 2)) // 가독성을 위한 JSON 출력
         } catch (error) {
             console.error('Error fetching AI review:', error)
             setReview('Failed to generate review. Please try again later.')

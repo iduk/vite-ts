@@ -1,5 +1,6 @@
 import { useRoutes } from 'react-router-dom'
 import 'assets/styles/global.scss'
+import './index.css'
 import IndexPage from 'pages/index'
 import GlobalLayout from 'pages/_layout'
 import Home from 'pages/home'
