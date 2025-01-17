@@ -1,73 +1,71 @@
 {
-  "name": "vite-app",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "prepare": "husky",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@react-three/drei": "^9.120.6",
-    "@react-three/fiber": "^8.17.12",
-    "@tanstack/react-query": "^5.53.3",
-    "@tanstack/react-query-devtools": "^5.54.0",
-    "@types/three": "^0.172.0",
-    "ai": "3.2.26",
-    "axios": "^1.7.7",
-    "body-parser": "^1.20.3",
-    "express": "^4.21.2",
-    "framer-motion": "^11.3.31",
-    "lil-gui": "^0.20.0",
-    "ollama": "^0.5.11",
-    "ollama-ai-provider": "^1.1.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-dropzone": "^14.3.5",
-    "react-hook-form": "^7.53.0",
-    "react-markdown": "^9.0.3",
-    "react-router-dom": "^6.26.1",
-    "react-three": "^0.9.7",
-    "three": "^0.172.0",
-    "zustand": "^4.5.5"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.9.0",
-    "@types/node": "^22.10.5",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "autoprefixer": "^10.4.20",
-    "classnames": "^2.5.1",
-    "cors": "^2.8.5",
-    "eslint": "^9.9.0",
-    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
-    "eslint-plugin-react-refresh": "^0.4.9",
-    "globals": "^15.9.0",
-    "husky": "^9.1.5",
-    "lint-staged": "^15.2.10",
-    "postcss": "^8.4.49",
-    "postcss-modules": "^6.0.1",
-    "prettier": "^3.3.3",
-    "sass": "^1.83.1",
-    "typescript": "^5.5.3",
-    "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1",
-    "vite-tsconfig-paths": "^5.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
+    "name": "vite-ts",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc -b && vite build",
+        "lint": "eslint .",
+        "prepare": "husky",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@tanstack/react-query": "^5.53.3",
+        "@tanstack/react-query-devtools": "^5.54.0",
+        "axios": "^1.7.9",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-hook-form": "^7.53.0",
+        "react-router-dom": "^6.26.1",
+        "zustand": "^4.5.5",
+        "lil-gui": "^0.20.0",
+        "ollama": "^0.5.11",
+        "ollama-ai-provider": "^1.1.0",
+        "ai": "3.2.26",
+        "@types/three": "^0.172.0",
+        "@react-three/drei": "^9.120.6",
+        "@react-three/fiber": "^8.17.12"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.9.0",
+        "@types/node": "^22.10.5",
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "@vitejs/plugin-react": "^4.3.4",
+        "autoprefixer": "^10.4.20",
+        "classnames": "^2.5.1",
+        "eslint": "^9.9.0",
+        "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+        "eslint-plugin-react-refresh": "^0.4.9",
+        "globals": "^15.9.0",
+        "husky": "^9.1.5",
+        "lint-staged": "^15.2.10",
+        "msw": "^2.7.0",
+        "postcss": "^8.4.49",
+        "postcss-modules": "^6.0.1",
+        "prettier": "^3.3.3",
+        "sass": "^1.77.8",
+        "typescript": "^5.5.3",
+        "typescript-eslint": "^8.0.1",
+        "vite": "^6.0.7",
+        "vite-tsconfig-paths": "^5.0.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+            "eslint --fix",
+            "prettier --write --config ./.prettierrc",
+            "git add"
+        ]
+    },
+    "msw": {
+        "workerDirectory": [
+            "public"
+        ]
     }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "eslint --fix",
-      "prettier --write --config ./.prettierrc",
-      "git add"
-    ]
-  }
 }

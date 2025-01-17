@@ -4,11 +4,15 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: '/',
     plugins: [react(), tsconfigPaths()],
     server: {
+        headers: {
+            'Cache-Control': 'no-store', // 캐시 비활성화
+        },
         proxy: {
             '/api': {
-                target: 'http://localhost:3000',
+                target: 'http://localhost:5173', // Vite 개발 서버
                 changeOrigin: true,
                 rewrite: path => path.replace(/^\/api/, ''),
             },
@@ -24,8 +28,8 @@ export default defineConfig({
             // SCSS 전역 사용
             scss: {
                 additionalData: `
-              @use "./src/assets/styles/variables" as var;
-              `,
+                  @import "/src/assets/styles/_variables.scss";
+                  `,
             },
         },
         postcss: './postcss.config.js',

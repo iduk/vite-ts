@@ -1,5 +1,5 @@
 .test {
-    color: var.$primary;
+    color: $primary;
 }
 
 .home-layout {
@@ -8,6 +8,6 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: var.$primary;
-    color: var.$secondary;
+    background-color: $primary;
+    color: $secondary;
 }
