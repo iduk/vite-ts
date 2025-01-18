@@ -29,7 +29,7 @@ export default defineConfig({
             // SCSS 전역 사용
             scss: {
                 additionalData: `
-                  @import "/src/assets/styles/_variables.scss";
+                  @use "/src/assets/styles/_variables.scss" as *;
                   `,
             },
         },

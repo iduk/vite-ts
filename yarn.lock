@@ -23,9 +23,9 @@
     secure-json-parse "2.7.0"
 
 "@ai-sdk/provider-utils@^2.0.0":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/@ai-sdk/provider-utils/-/provider-utils-2.0.8.tgz#9b02f7acf6eb2a3b23b8221b69bf011c6ce6fd03"
-  integrity sha512-R/wsIqx7Lwhq+ogzkqSOek8foj2wOnyBSGW/CH8IPBla0agbisIE9Ug7R9HDTNiBbIIKVhduB54qQSMPFw0MZA==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@ai-sdk/provider-utils/-/provider-utils-2.1.0.tgz#40f060252a192a31063300dd277a04df0eba604e"
+  integrity sha512-rBUabNoyB25PBUjaiMSk86fHNSCqTngNZVvXxv8+6mvw47JX5OexW+ZHRsEw8XKTE8+hqvNFVzctaOrRZ2i9Zw==
   dependencies:
     "@ai-sdk/provider" "1.0.4"
     eventsource-parser "^3.0.0"
@@ -2996,9 +2996,9 @@ object-hash@^3.0.0:
   integrity sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw==
 
 ollama-ai-provider@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/ollama-ai-provider/-/ollama-ai-provider-1.1.0.tgz#30faa14c68fef55b515adeccc22d4af012f8b6aa"
-  integrity sha512-kpNLX2I0qVZfyML/d+o3UZrJxUokWeLrrQeuAQOuYPKmZcN9bpU7PD7SuxsH86krWvXqM0SJygTPa0OwEK71OQ==
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/ollama-ai-provider/-/ollama-ai-provider-1.2.0.tgz#b052c8ad96ef8048185a7ac01ee9351a0cedf0ce"
+  integrity sha512-jTNFruwe3O/ruJeppI/quoOUxG7NA6blG3ZyQj3lei4+NnJo7bi3eIRWqlVpRlu/mbzbFXeJSBuYQWF6pzGKww==
   dependencies:
     "@ai-sdk/provider" "^1.0.0"
     "@ai-sdk/provider-utils" "^2.0.0"

@@ -69,7 +69,7 @@ export default function Chat() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+        <div className="min-h-screen flex flex-col items-center justify-center p-4">
             <div className="bg-white shadow-md rounded-lg p-6 max-w-2xl w-full flex flex-col">
                 <div
                     ref={messageContainerRef}
