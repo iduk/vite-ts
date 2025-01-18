@@ -29,18 +29,18 @@ export default function GlobalLayout() {
     return (
         <div className="min-h-screen flex flex-col">
             <header className="flex items-center justify-between border-b">
-                <div className="w-full max-w-screen-2xl mx-auto flex items-center justify-between  border-l border-r px-4 py-2">
+                <div className="w-full max-w-screen-2xl mx-auto flex items-center justify-between  border-l border-r bg-slate-50">
                     <h1 className="text-lg font-bold">
-                        <a href="/">
+                        <a href="/" className="block">
                             <img src={PixelDuk} alt="PixelDuk" style={{ height: '4vh' }} />
                         </a>
                     </h1>
                     {/* 햄버거 버튼 */}
                     <button
-                        className="block sm:hidden px-3 py-2 text-xl hover:bg-gray-100 transition"
+                        className="block h-full sm:hidden px-3 py-2 text-xl hover:bg-gray-100 transition border-l"
                         onClick={openDrawer}
                     >
-                        ☰
+                        <span className="block">☰</span>
                     </button>
 
                     {/* 데스크톱 네비게이션 */}
@@ -49,7 +49,7 @@ export default function GlobalLayout() {
                             <a
                                 key={item.href}
                                 href={item.href}
-                                className="px-4 py-2 text-sm md:text-base bg-gray-200 rounded-md hover:bg-gray-300 transition"
+                                className="px-4 py-2 text-sm md:text-base rounded-md hover:bg-slate-50 transition"
                             >
                                 {item.label}
                             </a>
