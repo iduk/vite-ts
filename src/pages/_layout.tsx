@@ -9,15 +9,15 @@ export default function GlobalLayout() {
     const openDrawer = () => {
         setIsVisible(true) // Drawer 표시
         setTimeout(() => {
-            setIsDrawerOpen(true) // 애니메이션 활성화
-        }, 10) // 약간의 딜레이로 애니메이션 시작
+            setIsDrawerOpen(true)
+        }, 10)
     }
 
     const closeDrawer = () => {
-        setIsDrawerOpen(false) // 애니메이션 비활성화
+        setIsDrawerOpen(false)
         setTimeout(() => {
-            setIsVisible(false) // DOM에서 제거
-        }, 300) // 애니메이션 지속 시간과 동일하게 설정
+            setIsVisible(false)
+        }, 300)
     }
 
     const menuItems = [
@@ -28,11 +28,16 @@ export default function GlobalLayout() {
 
     return (
         <div className="min-h-screen flex flex-col">
-            <header className="flex items-center justify-between border-b">
-                <div className="w-full max-w-screen-2xl mx-auto flex items-center justify-between  border-l border-r bg-slate-50">
+            <header className="flex items-center justify-between border-y">
+                <div className="w-full max-w-screen-2xl mx-auto flex items-center justify-between  border-l border-r">
                     <h1 className="text-lg font-bold">
-                        <a href="/" className="block">
-                            <img src={PixelDuk} alt="PixelDuk" style={{ height: '4vh' }} />
+                        <a href="/">
+                            <img
+                                src={PixelDuk}
+                                alt="PixelDuk"
+                                className="min-h-12"
+                                style={{ height: '5vh' }}
+                            />
                         </a>
                     </h1>
                     {/* 햄버거 버튼 */}
@@ -102,6 +107,19 @@ export default function GlobalLayout() {
                     <Outlet />
                 </div>
             </Suspense>
+
+            <footer className="flex items-center justify-center border-y">
+                <div className="w-full max-w-screen-2xl mx-auto p-4 border-l border-r">
+                    <div className="flex justify-between items-center">
+                        <p>
+                            <a href="" className="text-sm text-gray-500 hover:underline">
+                                Terms of Service
+                            </a>
+                        </p>
+                        <p className="text-sm">©1986 iDuk</p>
+                    </div>
+                </div>
+            </footer>
         </div>
     )
 }
