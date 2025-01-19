@@ -43,7 +43,7 @@ const apiHandler = async (
     url: string,
     data?: AxiosResponse,
     config?: AxiosRequestConfig
-): Promise<IResponse<AxiosResponse>> => {
+): Promise<IResponse> => {
     try {
         const response = await axiosInstance.request({
             method,
