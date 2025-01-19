@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
+import { IResponse } from '/types/common'
 
 // Axios 인스턴스 생성
 const axiosInstance = axios.create({
@@ -37,20 +38,20 @@ axiosInstance.interceptors.response.use(
 )
 
 // API 핸들러 함수
-const apiHandler = async <T>(
+const apiHandler = async (
     method: 'get' | 'post' | 'put' | 'delete',
     url: string,
     data?: AxiosResponse,
     config?: AxiosRequestConfig
-): Promise<T> => {
+): Promise<IResponse<AxiosResponse>> => {
     try {
-        const response = await axiosInstance.request<T>({
+        const response = await axiosInstance.request({
             method,
             url,
             data,
             ...config,
         })
-        return response?.data
+        return response.data
     } catch (error: any) {
         // 공통 에러 메시지 처리
         console.error(`API 호출 실패: ${error.message}`)

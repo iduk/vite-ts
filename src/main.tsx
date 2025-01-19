@@ -31,7 +31,12 @@ async function enableMocking() {
 enableMocking().then(() => {
     app.render(
         <StrictMode>
-            <BrowserRouter>
+            <BrowserRouter
+                future={{
+                    v7_startTransition: true,
+                    v7_relativeSplatPath: true,
+                }}
+            >
                 <QueryClientProvider client={queryClient}>
                     <App />
                     <ReactQueryDevtools />

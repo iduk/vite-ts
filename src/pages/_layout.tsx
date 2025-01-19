@@ -23,6 +23,7 @@ export default function GlobalLayout() {
     const menuItems = [
         { label: 'Home', href: '/home' },
         { label: 'Products', href: '/products' },
+        { label: 'Board', href: '/board' },
         { label: 'Test', href: '/test' },
     ]
 
@@ -34,9 +35,9 @@ export default function GlobalLayout() {
                         <a href="/">
                             <img
                                 src={PixelDuk}
-                                alt="PixelDuk"
                                 className="min-h-12"
                                 style={{ height: '5vh' }}
+                                alt="PixelDuk"
                             />
                         </a>
                     </h1>

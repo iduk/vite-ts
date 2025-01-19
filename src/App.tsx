@@ -7,6 +7,8 @@ import Home from 'pages/home'
 import ProductIndex from 'pages/products'
 import ProductDetail from 'pages/products/[id]'
 import TestIndex from 'pages/test'
+import BoardList from 'pages/board'
+import BoardDetail from 'pages/board/[id]'
 
 const App = () => {
     const routes = [
@@ -18,6 +20,8 @@ const App = () => {
                 { path: '/home', element: <Home /> },
                 { path: '/products', element: <ProductIndex /> },
                 { path: '/products/:id', element: <ProductDetail /> },
+                { path: '/board', element: <BoardList /> },
+                { path: '/board/:id', element: <BoardDetail /> },
                 { path: '/test', element: <TestIndex /> },
             ],
         },

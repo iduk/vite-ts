@@ -1,29 +1,18 @@
-// API 응답 타입
-export interface ApiResponse<T> {
-    code: number
-    message: string
-    data: T
-}
-
 // 유저 목록 가져오기
 import axios from 'axios'
+import apiHandler from 'api/apiHandler'
+import { IResponse } from '/types/common'
 
 export const getUsers = async (): Promise<{ data: { id: number; name: string }[] }> => {
     const response = await axios.get('/api/users')
     return response.data
 }
 
-// // 특정 유저 정보 가져오기
-// export const fetchUserById = async (id: number) => {
-//     return apiHandler<{ id: number; name: string }>('get', `/users/${id}`)
-// }
-
-// // 유저 생성
-// export const createUser = async (user: { name: string }) => {
-//     return apiHandler<{ id: number; name: string }>('post', '/users', user)
-// }
-
-// // 유저 삭제
-// export const deleteUser = async (id: number) => {
-//     return apiHandler<null>('delete', `/users/${id}`)
-// }
+// board 목록 가져오기
+export const getBoardList = async (): Promise<IResponse> => {
+    return apiHandler('get', `/api/board`)
+}
+// board 상세
+export const getBoardDetail = async (id: number): Promise<IResponse> => {
+    return apiHandler('get', `/api/board/${id}`)
+}
