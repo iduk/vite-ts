@@ -9,6 +9,7 @@ import ProductDetail from 'pages/products/[id]'
 import TestIndex from 'pages/test'
 import BoardList from 'pages/board'
 import BoardDetail from 'pages/board/[id]'
+import GlobalModal from 'components/Modals/GlobalModal'
 
 const App = () => {
     const routes = [
@@ -27,7 +28,12 @@ const App = () => {
         },
     ]
     const elem = useRoutes(routes)
-    return elem
+    return (
+        <>
+            {elem}
+            <GlobalModal />
+        </>
+    )
 }
 
 export default App

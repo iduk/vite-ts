@@ -1,32 +1,28 @@
-import { useEffect, useState } from 'react'
-import { getUsers } from 'api/common'
+import { useModalStore } from 'store/modalStore'
 
 const TestIndex = () => {
-    const [users, setUsers] = useState<{ id: number; name: string }[]>([])
+    const { openModal } = useModalStore()
 
-    useEffect(() => {
-        const loadUsers = async () => {
-            try {
-                const usersData = await getUsers()
-                setUsers(usersData?.data)
-            } catch (error) {
-                console.error('유저 목록 로드 실패:', error)
-            }
-        }
+    const myCustomModal1 = () => {
+        openModal({
+            type: 'fullScreen',
+            onConfirm: () => console.log('첫 번째 모달 확인 클릭'),
+            data: { title: '모달이에요', content: '이것은 첫 번째 모달입니다.' },
+        })
+    }
 
-        loadUsers()
-    }, [])
+    const myCustomModal2 = () => {
+        openModal({
+            type: 'confirm',
+            onConfirm: () => console.log('두 번째 모달 확인 클릭'),
+            data: { title: '컨펌모달', content: '이것은 두 번째 모달입니다.' },
+        })
+    }
 
     return (
         <div>
-            <h1>유저 목록</h1>
-            <ul>
-                {users?.length > 0 ? (
-                    users.map(user => <li key={user.id}>{user.name}</li>)
-                ) : (
-                    <li>데이터가 없습니다.</li>
-                )}
-            </ul>
+            <button onClick={myCustomModal1}>첫 번째 모달 열기</button>
+            <button onClick={myCustomModal2}>두 번째 모달 열기</button>
         </div>
     )
 }
