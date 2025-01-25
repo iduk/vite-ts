@@ -1,3 +1,7 @@
+import styles from './BottomSheet.module.scss'
+import classnames from 'classnames/bind'
+const cx = classnames.bind(styles)
+
 interface ModalProps {
     title?: string
     content?: string
@@ -5,9 +9,9 @@ interface ModalProps {
     onCancel?: () => void
 }
 
-export default function BottomSheetModal({ title, content, onConfirm, onCancel }: ModalProps) {
+export default function BottomSheet({ title, content, onConfirm, onCancel }: ModalProps) {
     return (
-        <div className="bg-white p-8 rounded-t-lg">
+        <div className={cx('modal-container', 'bottom-sheet')}>
             <h3>{title || '모달 제목'}</h3>
             <p>{content || '모달 내용'}</p>
             <div className="flex justify-end mt-4">

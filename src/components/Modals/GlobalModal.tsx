@@ -1,21 +1,20 @@
 import { createElement } from 'react'
-import BottomSheetModal from 'components/Modals/BottomSheetModal'
-import FullScreenModal from 'components/Modals/FullScreenModal'
 import { useModalStore } from 'store/modalStore'
+import FullScreenModal from 'components/Modals/FullScreenModal'
 import Modal from 'components/Modals/Modal'
+import BottomSheet from 'components/Modals/BottomSheet'
+import ConfirmModal from 'components/Modals/ConfirmModal'
 
 export default function GlobalModal() {
     const { modals, closeModal } = useModalStore()
     const currentModal = modals[modals.length - 1]
     if (!currentModal) return null
 
-    // modal type 상수화
-
     const modalTypes = {
         modal: Modal,
         fullScreen: FullScreenModal,
-        confirm: FullScreenModal,
-        bottomSheet: BottomSheetModal,
+        confirm: ConfirmModal,
+        bottomSheet: BottomSheet,
     }
 
     return (
