@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { IResponse } from '/types/common'
+import { IResponse } from 'types/common'
 
 // Axios 인스턴스 생성
 const axiosInstance = axios.create({

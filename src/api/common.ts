@@ -1,7 +1,7 @@
 // 유저 목록 가져오기
 import axios from 'axios'
 import apiHandler from 'api/apiHandler'
-import { IResponse } from '/types/common'
+import { IResponse } from 'types/common'
 
 export const getUsers = async (): Promise<{ data: { id: number; name: string }[] }> => {
     const response = await axios.get('/api/users')

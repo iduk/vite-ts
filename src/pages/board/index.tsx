@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { getBoardList } from 'api/common'
-import { IResponse } from '/types/common'
-import { IBoardList } from '/types/board'
+import { IBoardList } from 'types/board'
+import { IResponse } from 'types/common'
 
 // board list
 export default function BoardList() {

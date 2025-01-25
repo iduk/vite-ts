@@ -2,8 +2,8 @@ import { useQuery } from '@tanstack/react-query'
 import { getBoardDetail } from 'api/common'
 import { useEffect, useState } from 'react'
 import { IResponse } from 'types/common'
-import { IBoardDetail } from '/types/board'
 import { useParams } from 'react-router-dom'
+import { IBoardDetail } from 'types/board'
 
 export default function BoardDetail() {
     const { id } = useParams()

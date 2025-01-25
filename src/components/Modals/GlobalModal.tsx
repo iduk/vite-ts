@@ -1,9 +1,9 @@
 import { createElement } from 'react'
-import { useModalStore } from 'store/modalStore'
 import FullScreenModal from 'components/Modals/FullScreenModal'
 import Modal from 'components/Modals/Modal'
 import BottomSheet from 'components/Modals/BottomSheet'
 import ConfirmModal from 'components/Modals/ConfirmModal'
+import { useModalStore } from 'store/modalStore'
 
 export default function GlobalModal() {
     const { modals, closeModal } = useModalStore()
