@@ -9,7 +9,7 @@ import ProductDetail from 'pages/products/[id]'
 import TestIndex from 'pages/test'
 import BoardList from 'pages/board'
 import BoardDetail from 'pages/board/[id]'
-import GlobalModal from 'components/Modals/GlobalModal'
+import GlobalModal from 'components/Modals'
 
 const App = () => {
     const routes = [

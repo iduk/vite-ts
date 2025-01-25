@@ -1,14 +1,17 @@
-interface ModalProps {
-    title?: string
-    content?: string
-    onConfirm?: () => void
-    onCancel?: () => void
-}
+import { ModalProps } from 'components/Modals'
+import styles from './ConfirmModal.module.scss'
+import classnames from 'classnames/bind'
+const cx = classnames.bind(styles)
 
-export default function ConfirmModal({ title, content, onConfirm, onCancel }: ModalProps) {
+export default function ConfirmModal({
+    title,
+    content,
+    onConfirm,
+    onCancel,
+    isVisible,
+}: ModalProps) {
     return (
-        // tailwindcss Confirm UI max-w-sm
-        <div className="modal max-w-sm">
+        <div className={cx('modal-container', isVisible ? 'in' : 'out')}>
             {title && <h3>{title}</h3>}
             <p>{content || '모달 내용'}</p>
             <div className="modal-buttons">
