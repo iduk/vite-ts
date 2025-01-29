@@ -11,6 +11,26 @@ import BoardList from 'pages/board'
 import BoardDetail from 'pages/board/[id]'
 import GlobalModal from 'components/Modals'
 
+// IOS support
+const isIOS = () => {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent)
+}
+
+if (isIOS()) {
+    // ios Safari에서 vh 단위 사용 시 대응
+    const setViewportHeightForIOS = () => {
+        const vh = window.innerHeight * 0.01
+        document.documentElement.style.setProperty('--vh', `${vh}px`)
+    }
+    window.addEventListener('resize', setViewportHeightForIOS)
+    window.addEventListener('load', setViewportHeightForIOS)
+
+    // 비정상적인 터치 이벤트 방지
+    document.addEventListener('gesturestart', function (event) {
+        event.preventDefault()
+    })
+}
+
 const App = () => {
     const routes = [
         {
