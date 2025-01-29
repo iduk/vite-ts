@@ -1,11 +1,10 @@
-// import Review from 'components/Review'
-import Chat from 'components/Chat'
+import ImageAnalyzer from 'components/ImageAnalyzer'
 
 export default function IndexPage() {
     return (
         <>
             <h1>Intro</h1>
-            <Chat />
+            <ImageAnalyzer />
         </>
     )
 }
