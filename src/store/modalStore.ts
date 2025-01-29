@@ -18,18 +18,18 @@ interface ModalConfig {
 
 interface IModalState {
     modals: ModalConfig[] // 중첩 모달 배열
-    openModal: (config: {
+    addModal: (config: {
         type?: modalType | 'modal'
         onConfirm?: () => void
         onCancel?: () => void
         data?: any
     }) => void
-    closeModal: () => void
+    hideModal: () => void
 }
 
 export const useModalStore = create<IModalState>(set => ({
     modals: [],
-    openModal: ({ type = 'modal', onConfirm, onCancel, data = null }) => {
+    addModal: ({ type = 'modal', onConfirm, onCancel, data = null }) => {
         const newModal: ModalConfig = {
             type: type,
             buttons: [
@@ -40,5 +40,5 @@ export const useModalStore = create<IModalState>(set => ({
         }
         set(state => ({ modals: [...state.modals, newModal] }))
     },
-    closeModal: () => set(state => ({ modals: state.modals.slice(0, -1) })),
+    hideModal: () => set(state => ({ modals: state.modals.slice(0, -1) })),
 }))

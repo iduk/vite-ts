@@ -14,7 +14,7 @@ export interface ModalProps {
 }
 
 export default function Modals() {
-    const { modals, closeModal } = useModalStore()
+    const { modals, hideModal } = useModalStore()
     const [isVisible, setIsVisible] = useState(false)
 
     const currentModal = modals[modals.length - 1]
@@ -30,7 +30,7 @@ export default function Modals() {
     const handleClose = () => {
         setIsVisible(false)
         setTimeout(() => {
-            closeModal()
+            hideModal()
         }, 300)
     }
 

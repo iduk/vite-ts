@@ -9,7 +9,8 @@ import ProductDetail from 'pages/products/[id]'
 import TestIndex from 'pages/test'
 import BoardList from 'pages/board'
 import BoardDetail from 'pages/board/[id]'
-import GlobalModal from 'components/Modals'
+import Modals from 'components/Modals'
+import Toasts from 'components/Toasts'
 
 // IOS support
 const isIOS = () => {
@@ -51,7 +52,8 @@ const App = () => {
     return (
         <>
             {elem}
-            <GlobalModal />
+            <Modals />
+            <Toasts />
         </>
     )
 }
