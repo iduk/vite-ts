@@ -3,9 +3,9 @@ import { useToastStore } from 'store/toastStore'
 
 const TestIndex = () => {
     const { addModal } = useModalStore()
-    const { addToast } = useToastStore()
+    const { addToast, hideToast } = useToastStore()
 
-    const myCustomModal1 = () => {
+    const testModal1 = () => {
         addModal({
             type: 'bottomSheet',
             onConfirm: () => console.log('확인 클릭'),
@@ -17,7 +17,7 @@ const TestIndex = () => {
         })
     }
 
-    const myCustomModal2 = () => {
+    const testModal2 = () => {
         addModal({
             type: 'confirm',
             onConfirm: () => console.log('확인 클릭'),
@@ -25,7 +25,7 @@ const TestIndex = () => {
         })
     }
 
-    const myCustomModal3 = () => {
+    const testModal3 = () => {
         addModal({
             type: 'fullScreen',
             onConfirm: () => console.log('확인 클릭'),
@@ -33,10 +33,31 @@ const TestIndex = () => {
         })
     }
 
-    const myToast1 = () => {
+    // 토스트 테스트
+    const testToast1 = () => {
         addToast({
             type: 'info',
-            message: '일반 토스트 타입 메세지',
+            message: '일반 토스트 타입 메세지...',
+            onCancel: () => {
+                console.log('취소 클릭')
+                hideToast()
+            },
+        })
+    }
+    const testToast2 = () => {
+        const duration = 5000
+        addToast({
+            type: 'success',
+            duration: duration,
+            message: `토스트 메세지입니다. ${duration / 1000}초 후 사라집니다.`,
+            onConfirm: () => {
+                console.log('확인 클릭')
+                hideToast()
+            },
+            onCancel: () => {
+                console.log('취소 클릭')
+                hideToast()
+            },
         })
     }
 
@@ -45,13 +66,13 @@ const TestIndex = () => {
             <section className="flex flex-col gap-4">
                 <h2 className="text-2xl font-bold">모달</h2>
                 <div className="flex gap-4">
-                    <button className="px-3 py-2 border" onClick={myCustomModal1}>
+                    <button className="px-3 py-2 border" onClick={testModal1}>
                         바텀시트 열기
                     </button>
-                    <button className="px-3 py-2 border" onClick={myCustomModal2}>
+                    <button className="px-3 py-2 border" onClick={testModal2}>
                         컨펌모달 열기
                     </button>
-                    <button className="px-3 py-2 border" onClick={myCustomModal3}>
+                    <button className="px-3 py-2 border" onClick={testModal3}>
                         풀스크린모달 열기
                     </button>
                 </div>
@@ -60,8 +81,12 @@ const TestIndex = () => {
             <section className="flex flex-col gap-4">
                 <h2 className="text-2xl font-bold">토스트</h2>
                 <div className="flex gap-4">
-                    <button className="px-3 py-2 border" onClick={myToast1}>
+                    <button className="px-3 py-2 border" onClick={testToast1}>
                         토스트1
+                    </button>
+
+                    <button className="px-3 py-2 border" onClick={testToast2}>
+                        toast, duration 5s
                     </button>
                 </div>
             </section>
