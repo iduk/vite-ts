@@ -1,10 +1,9 @@
-import ImageAnalyzer from 'components/ImageAnalyzer'
+import Draggable from 'components/Draggable'
 
 export default function IndexPage() {
     return (
         <>
-            <h1>Intro</h1>
-            <ImageAnalyzer />
+            <Draggable />
         </>
     )
 }
