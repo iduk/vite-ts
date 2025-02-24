@@ -1,45 +1,27 @@
 import { Canvas } from '@react-three/fiber'
-import MeshImages from 'components/ImageGrid/MeshImages'
-import useImageUrl from 'components/ImageGrid/useImageUrl'
-import { useEffect, useRef } from 'react'
+import { OrbitControls } from '@react-three/drei'
+import MeshImage from './MeshImage'
+import useImageUrl from './useImageUrl'
 
-export default function ImageGrid({
-    columns = 4,
-    imageCount = 4,
-}: {
-    columns?: number
-    imageCount?: number
-}) {
+export default function ImageGrid({ imageCount = 10 }) {
     const imageUrls = useImageUrl(imageCount)
-    const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
-    useEffect(() => {
-        const handleContextLost = (event: Event) => {
-            event.preventDefault()
-            console.warn('WebGL Context Lost. Trying to restore...')
-        }
-
-        const canvas = canvasRef?.current
-        canvas?.addEventListener('webglcontextlost', handleContextLost)
-    }, [])
-
-    if (imageUrls.length === 0) {
+    if (!imageUrls.length) {
         return <div className="w-full h-full flex items-center justify-center">Loading...</div>
     }
 
     return (
-        <Canvas
-            ref={canvasRef}
-            orthographic
-            camera={{ zoom: 20, position: [0, 0, 10] }}
-            gl={{ preserveDrawingBuffer: true }}
-        >
-            <ambientLight intensity={1} />
+        <Canvas camera={{ position: [0, 0, 10], fov: 50 }} gl={{ preserveDrawingBuffer: false }}>
+            <ambientLight intensity={1.5} />
+            <pointLight position={[10, 10, 10]} />
             {imageUrls.map((url, i) => {
-                const x = (i % columns) * 1.2 - ((columns - 1) * 1.2) / 2
-                const y = -Math.floor(i / columns) * 1.8 + 10
-                return <MeshImages key={i} url={url} position={[x, y, 0]} />
+                const angle = (i / imageCount) * Math.PI * 2 // 원형 배치
+                const x = Math.cos(angle) * 8
+                const y = Math.sin(angle) * 5
+                const z = (Math.random() - 0.5) * 5
+                return <MeshImage key={i} url={url} position={[x, y, z]} />
             })}
+            <OrbitControls enableZoom={false} />
         </Canvas>
     )
 }

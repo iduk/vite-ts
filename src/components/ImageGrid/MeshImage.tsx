@@ -1,8 +1,8 @@
 import { useTexture } from '@react-three/drei'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { Mesh } from 'three'
 
-export default function MeshImages({
+export default function MeshImage({
     url,
     position,
 }: {
@@ -12,15 +12,13 @@ export default function MeshImages({
     const texture = useTexture(url)
     const meshRef = useRef<Mesh>(null)
 
-    useEffect(() => {
-        return () => {
-            texture.dispose()
-        }
-    }, [texture])
-
     return (
-        <mesh ref={meshRef} position={position}>
-            <planeGeometry args={[10, 10]} />
+        <mesh
+            ref={meshRef}
+            position={position}
+            rotation={[Math.random() * 0.5, Math.random() * 0.5, Math.random() * 0.5]}
+        >
+            <planeGeometry args={[4, 4]} />
             <meshBasicMaterial map={texture} />
         </mesh>
     )
