@@ -3,7 +3,7 @@ import { create } from 'zustand'
 type toastType = 'success' | 'error' | 'info'
 
 interface IToastButton {
-    label: string | JSX.Element
+    label: string | React.ReactNode
     action?: () => void
     style?: string
 }
