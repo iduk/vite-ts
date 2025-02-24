@@ -4,7 +4,7 @@ import { create } from 'zustand'
 type modalType = 'confirm' | 'fullScreen' | 'bottomSheet' | 'modal'
 
 interface IModalButton {
-    label: string | JSX.Element
+    label: string | React.ReactNode
     action?: () => void
     style?: string
 }
