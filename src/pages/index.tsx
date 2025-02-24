@@ -1,9 +1,9 @@
-import Draggable from 'components/Draggable'
+import ImageGrid from 'components/ImageGrid'
 
-export default function IndexPage() {
+export default function Index() {
     return (
-        <>
-            <Draggable />
-        </>
+        <div className="relative w-full h-screen">
+            <ImageGrid />
+        </div>
     )
 }
