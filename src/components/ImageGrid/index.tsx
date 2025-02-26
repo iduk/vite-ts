@@ -1,27 +1,28 @@
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
-import MeshImage from './MeshImage'
-import useImageUrl from './useImageUrl'
+import { useThree } from '@react-three/fiber'
+import { useEffect } from 'react'
 
-export default function ImageGrid({ imageCount = 10 }) {
-    const imageUrls = useImageUrl(imageCount)
-
-    if (!imageUrls.length) {
-        return <div className="w-full h-full flex items-center justify-center">Loading...</div>
-    }
-
-    return (
-        <Canvas camera={{ position: [0, 0, 10], fov: 50 }} gl={{ preserveDrawingBuffer: false }}>
-            <ambientLight intensity={1.5} />
-            <pointLight position={[10, 10, 10]} />
-            {imageUrls.map((url, i) => {
-                const angle = (i / imageCount) * Math.PI * 2 // 원형 배치
-                const x = Math.cos(angle) * 8
-                const y = Math.sin(angle) * 5
-                const z = (Math.random() - 0.5) * 5
-                return <MeshImage key={i} url={url} position={[x, y, z]} />
-            })}
-            <OrbitControls enableZoom={false} />
-        </Canvas>
-    )
+const getGridPosition = (
+    index: number,
+    columns: number,
+    spacing: number
+): [number, number, number] => {
+    const x = (index % columns) * spacing - ((columns - 1) * spacing) / 2
+    const y = -Math.floor(index / columns) * spacing + 2
+    return [x, y, 0]
 }
+
+// WebGL 컨텍스트 확인 컴포넌트
+function WebGLCheck() {
+    const { gl } = useThree()
+
+    useEffect(() => {
+        console.log('WebGLRenderer:', gl)
+        if (!gl) {
+            console.error('WebGLRenderer is not initialized correctly!')
+        }
+    }, [gl])
+
+    return null
+}
+
+export { getGridPosition, WebGLCheck }

@@ -1,7 +1,6 @@
 import { useTexture } from '@react-three/drei'
-import { useRef } from 'react'
-import { Mesh } from 'three'
 
+// 🌟 이미지 컴포넌트
 export default function MeshImage({
     url,
     position,
@@ -10,15 +9,9 @@ export default function MeshImage({
     position: [number, number, number]
 }) {
     const texture = useTexture(url)
-    const meshRef = useRef<Mesh>(null)
-
     return (
-        <mesh
-            ref={meshRef}
-            position={position}
-            rotation={[Math.random() * 0.5, Math.random() * 0.5, Math.random() * 0.5]}
-        >
-            <planeGeometry args={[4, 4]} />
+        <mesh position={position} rotation={[0, 0, 0]}>
+            <planeGeometry args={[2, 2]} />
             <meshBasicMaterial map={texture} />
         </mesh>
     )
