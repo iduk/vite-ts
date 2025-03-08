@@ -11,6 +11,7 @@ import BoardList from 'pages/board'
 import BoardDetail from 'pages/board/[id]'
 import Modals from 'components/Modals'
 import Toasts from 'components/Toasts'
+import ImageGrid from 'pages/test2'
 
 // IOS support
 const isIOS = () => {
@@ -45,6 +46,7 @@ const App = () => {
                 { path: '/board', element: <BoardList /> },
                 { path: '/board/:id', element: <BoardDetail /> },
                 { path: '/test', element: <TestIndex /> },
+                { path: '/test2', element: <ImageGrid /> },
             ],
         },
     ]

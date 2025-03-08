@@ -63,33 +63,36 @@ const TestIndex = () => {
 
     return (
         <div className="flex flex-col gap-8 p-8">
-            <section className="flex flex-col gap-4">
-                <h2 className="text-2xl font-bold">모달</h2>
-                <div className="flex gap-4">
-                    <button className="px-3 py-2 border" onClick={testModal1}>
-                        바텀시트 열기
-                    </button>
-                    <button className="px-3 py-2 border" onClick={testModal2}>
-                        컨펌모달 열기
-                    </button>
-                    <button className="px-3 py-2 border" onClick={testModal3}>
-                        풀스크린모달 열기
-                    </button>
-                </div>
-            </section>
+            <h1 className="text-4xl font-bold">테스트 페이지</h1>
+            <div className="flex flex-col gap-8" style={{ height: 3000 }}>
+                <section className="flex flex-col gap-4">
+                    <h2 className="text-2xl font-bold">모달</h2>
+                    <div className="flex gap-4">
+                        <button className="px-3 py-2 border" onClick={testModal1}>
+                            바텀시트 열기
+                        </button>
+                        <button className="px-3 py-2 border" onClick={testModal2}>
+                            컨펌모달 열기
+                        </button>
+                        <button className="px-3 py-2 border" onClick={testModal3}>
+                            풀스크린모달 열기
+                        </button>
+                    </div>
+                </section>
 
-            <section className="flex flex-col gap-4">
-                <h2 className="text-2xl font-bold">토스트</h2>
-                <div className="flex gap-4">
-                    <button className="px-3 py-2 border" onClick={testToast1}>
-                        토스트1
-                    </button>
+                <section className="flex flex-col gap-4">
+                    <h2 className="text-2xl font-bold">토스트</h2>
+                    <div className="flex gap-4">
+                        <button className="px-3 py-2 border" onClick={testToast1}>
+                            토스트1
+                        </button>
 
-                    <button className="px-3 py-2 border" onClick={testToast2}>
-                        toast, duration 5s
-                    </button>
-                </div>
-            </section>
+                        <button className="px-3 py-2 border" onClick={testToast2}>
+                            toast, duration 5s
+                        </button>
+                    </div>
+                </section>
+            </div>
         </div>
     )
 }

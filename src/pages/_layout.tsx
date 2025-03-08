@@ -28,7 +28,7 @@ export default function GlobalLayout() {
     ]
 
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-dvh flex flex-col">
             <header className="flex items-center justify-between border-y">
                 <div className="w-full max-w-screen-2xl mx-auto flex items-center justify-between  border-l border-r">
                     <h1 className="text-lg font-bold">
