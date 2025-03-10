@@ -11,3 +11,9 @@ body {
     -webkit-text-size-adjust: 100%;
     -webkit-overflow-scrolling: touch;
 }
+
+// iOS 14.5+ fix
+body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+}
