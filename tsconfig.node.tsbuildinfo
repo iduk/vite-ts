@@ -1,0 +1,1 @@
+{"root":["./vite.config.ts","./src/global.d.ts","./src/vite-env.d.ts","./src/api/apihandler.ts","./src/api/common.ts","./src/mocks/browser.ts","./src/mocks/handlers.ts","./src/mocks/node.ts","./src/store/modalstore.ts","./src/store/toaststore.ts","./src/types/board.ts","./src/types/common.ts"],"version":"5.7.3"}

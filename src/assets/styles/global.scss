@@ -1,6 +1,13 @@
 // global styles
 
-html {
+:root {
+    --vh: 100%;
+}
+
+html,
+body {
+    height: 100vh;
+    height: var(--vh);
     -webkit-text-size-adjust: 100%;
     -webkit-overflow-scrolling: touch;
 }
