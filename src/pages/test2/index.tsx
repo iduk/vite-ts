@@ -30,13 +30,11 @@ function ImagePlane({ url, position }: { url: string; position: [number, number,
 
     useFrame(({ clock }) => {
         const t = clock.getElapsedTime()
-        pos.start({
-            pos: [
-                position[0] + Math.sin(t + position[0]) * 0.2,
-                position[1] + Math.cos(t + position[1]) * 0.2,
-                position[2] + Math.sin(t * 0.5 + position[2]) * 0.1,
-            ],
-        })
+        pos.set([
+            position[0] + Math.sin(t + position[0]) * 0.2,
+            position[1] + Math.cos(t + position[1]) * 0.2,
+            position[2] + Math.sin(t * 0.5 + position[2]) * 0.1,
+        ])
     })
 
     return (
