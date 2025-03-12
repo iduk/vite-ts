@@ -92,6 +92,12 @@ const TestIndex = () => {
                         </button>
                     </div>
                 </section>
+
+                <div className="flex gap-4 fixed bottom-0 left-0 p-4 w-full">
+                    <button className="px-3 py-2 w-full bg-black text-white" onClick={testModal1}>
+                        바텀시트 열기
+                    </button>
+                </div>
             </div>
         </div>
     )

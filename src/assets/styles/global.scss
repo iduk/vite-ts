@@ -10,6 +10,8 @@ body {
     height: var(--vh);
     -webkit-text-size-adjust: 100%;
     -webkit-overflow-scrolling: touch;
+    // scroll none
+    overscroll-behavior: none;
 }
 
 // iOS 14.5+ fix
