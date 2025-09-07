@@ -25,6 +25,7 @@ export default function GlobalLayout() {
         { label: 'Products', href: '/products' },
         { label: 'Board', href: '/board' },
         { label: 'Test', href: '/test' },
+        { label: 'Test2', href: '/test2' },
     ]
 
     return (

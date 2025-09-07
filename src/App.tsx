@@ -2,7 +2,7 @@ import { useRoutes } from 'react-router-dom'
 import 'assets/styles/global.scss'
 import './index.css'
 import IndexPage from 'pages/index'
-import GlobalLayout from 'pages/_layout'
+import GlobalLayout from 'components/Layouts/GlobalLayout'
 import Home from 'pages/home'
 import ProductIndex from 'pages/products'
 import ProductDetail from 'pages/products/[id]'
@@ -12,6 +12,7 @@ import BoardDetail from 'pages/board/[id]'
 import Modals from 'components/Modals'
 import Toasts from 'components/Toasts'
 import ImageGrid from 'pages/test2'
+import SimpleLayout from 'components/Layouts/SimpleLayout'
 
 // IOS support
 const isIOS = () => {
@@ -46,8 +47,13 @@ const App = () => {
                 { path: '/board', element: <BoardList /> },
                 { path: '/board/:id', element: <BoardDetail /> },
                 { path: '/test', element: <TestIndex /> },
-                { path: '/test2', element: <ImageGrid /> },
             ],
+        },
+        // test2 layout -> SimpleLayout
+        {
+            path: '/test2',
+            element: <SimpleLayout />,
+            children: [{ index: true, element: <ImageGrid /> }],
         },
     ]
     const elem = useRoutes(routes)
